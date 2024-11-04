@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text } from '@vercel/examples-ui'
 import Pagination from './Pagination'
+import Image from 'next/image'
 
 type PageProps = {
   products: any[]
@@ -9,15 +10,13 @@ type PageProps = {
   perPage: number
 }
 
-const ProductCard = ({ name, description, price }: any) => (
-  <div className="my-10 border-2 border-sky-500 p-3">
-    <Text variant="h2">{name}</Text>
+const ProductCard = ({ title, images, price }: any) => (
+  <div className="flex flex-col my-10 border-2 border-sky-500 p-3 text-center justify-center items-center">
+    <p className="text-2xl font-bold">{title}</p>
     <Text variant="smallText" className="my-3">
       ${price}
     </Text>
-    <Text variant="body" className="my-8">
-      {description}
-    </Text>
+    <Image src={images[0]} alt={title} width={100} height={100} className='rounded-md flex justify-center items-center' />
   </div>
 )
 

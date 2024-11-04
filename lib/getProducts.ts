@@ -1,18 +1,30 @@
-import products from '../mocks/products.json'
+import useProductStore from '../store/ProductStore';
 
-/**
- * Paginates the list of products by page, this is one of the ways of doing pagination
- * when you know the total of products and jumping to X page is fast in your DB.
- */
 export default async function getProducts({
   limit,
   page,
+  category, 
 }: {
-  limit: number
-  page: number
+  limit: number;
+  page: number;
+  category?: string; 
 }) {
-  // Usually pagination is done by your DB, and the total is also known by the
-  // DB, in this case we're using a demo json so things are simpler.
-  const paginatedProducts = products.slice((page - 1) * limit, page * limit)
-  return { products: paginatedProducts, total: products.length }
+  const { products, totalProducts } = useProductStore.getState();
+
+  if (products.length === 0) {
+    await useProductStore.getState().getProducts(); 
+  }
+
+  // Filtra los productos por categoría si se proporciona
+  const filteredProducts = category
+    ? products.filter((product) => product.category === category)
+    : products;
+
+  const paginatedProducts = filteredProducts.slice((page - 1) * limit, page * limit);
+
+  return { products: paginatedProducts, total: filteredProducts.length };
 }
+
+
+
+
