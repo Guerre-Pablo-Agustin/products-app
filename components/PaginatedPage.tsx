@@ -8,6 +8,7 @@ type PageProps = {
   currentPage: number
   totalProducts: number
   perPage: number
+  category: string[]
 }
 
 const ProductCard = ({ title, images, price }: any) => (
@@ -25,23 +26,25 @@ const PaginationPage = ({
   totalProducts,
   perPage,
   products,
+  category,
 }: PageProps): JSX.Element => {
+  const mainCategory = category[0];
   return (
     <div>
-      <Text variant="h1">Page {currentPage}</Text>
+      <Text variant="h1">{mainCategory.charAt(0).toUpperCase() + mainCategory.slice(1)} Page {currentPage}</Text>
       <Pagination
         totalItems={totalProducts}
         currentPage={currentPage}
         itemsPerPage={perPage}
-        renderPageLink={(page) => `/category/${page}`}
+        renderPageLink={(page) => `/${mainCategory}/${page}`} 
       />
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-3 grid-cols-2 gap-8">
         {products.map((product, i) => (
           <ProductCard key={i} {...product} />
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export default PaginationPage
