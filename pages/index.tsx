@@ -13,17 +13,13 @@ import buildScreenShot from '../public/build.png'
 function Home() {
   return (
     <Page>
-      <section>
-      
-      
    
-      </section>
-
-      <hr className="border-t border-accents-2 my-6" />
-
-      <section className="flex flex-col gap-3">
-        <Link href="/category">
-          <Button>DEMO: Go to category page (PLP) </Button>
+      <section className="flex md:flex-row flex-col gap-3">
+        <Link href="/beauty">
+          <Button>Ir a la pagina de beauty</Button>
+        </Link>
+        <Link href="/groceries">
+          <Button>Ir a la pagina de groceries</Button>
         </Link>
       </section>
     </Page>

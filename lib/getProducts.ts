@@ -3,11 +3,11 @@ import useProductStore from '../store/ProductStore';
 export default async function getProducts({
   limit,
   page,
-  category, 
+  categories, 
 }: {
   limit: number;
   page: number;
-  category?: string; 
+  categories?: string[];
 }) {
   const { products, totalProducts } = useProductStore.getState();
 
@@ -15,9 +15,9 @@ export default async function getProducts({
     await useProductStore.getState().getProducts(); 
   }
 
-  // Filtra los productos por categoría si se proporciona
-  const filteredProducts = category
-    ? products.filter((product) => product.category === category)
+  // Filtra los productos por categorías si se proporciona un arreglo
+  const filteredProducts = categories && categories.length > 0
+    ? products.filter((product) => categories.includes(product.category))
     : products;
 
   const paginatedProducts = filteredProducts.slice((page - 1) * limit, page * limit);
