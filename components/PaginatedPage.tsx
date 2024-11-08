@@ -13,7 +13,7 @@ type PageProps = {
 
 const ProductCard = ({ title, images, price }: any) => (
   <div className="flex flex-col my-10 border-2 border-sky-500 p-3 text-center justify-center items-center">
-    <p className="text-2xl font-bold">{title}</p>
+    <p className="text-xl font-bold">{title}</p>
     <Text variant="smallText" className="my-3">
       ${price}
     </Text>
@@ -38,7 +38,7 @@ const PaginationPage = ({
         itemsPerPage={perPage}
         renderPageLink={(page) => `/${mainCategory}/${page}`} 
       />
-      <div className="grid md:grid-cols-3 grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-3 grid-cols-2 gap-8 px-6">
         {products.map((product, i) => (
           <ProductCard key={i} {...product} />
         ))}
