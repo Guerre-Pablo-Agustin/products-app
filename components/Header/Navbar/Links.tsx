@@ -13,19 +13,19 @@ interface Link {
 export const links: Link[] = [
   {
     id: 1,
-    name: "Inicio",
+    name: "home",
     url: "/",
     icon: <FaHome className="h-6 w-6" />, 
   },
   {
     id: 2,
-    name: "Belleza",
+    name: "beauty",
     url: "/beauty",
     icon: <MdOutlineCoffeeMaker className="h-6 w-6" />, 
   },
   {
     id: 3,
-    name: "Alimentación",
+    name: "groceries",
     url: "/groceries",
     icon: <GiMilkCarton className="h-6 w-6" />,
   }
