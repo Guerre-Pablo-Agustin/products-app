@@ -1,12 +1,20 @@
-import React, { useEffect } from "react";
+import React, { use, useEffect } from "react";
 import { links } from "./Links";
 import Link from "next/link";
+import { Trans, useTranslation } from "react-i18next";
+import useProductStore from "../../../store/ProductStore";
+import i18n from "../../../lib/i18n";
 
 
 const Navbar = () => {
- 
+  
+  const { t } = useTranslation("common");
+  const { language } = useProductStore();
 
-
+  useEffect(() => {
+    i18n.changeLanguage(language);
+    console.log("language", language);
+  }, [language]);
 
   return (
     <div className="lex justify-between items-center px-6 relative">
@@ -18,7 +26,7 @@ const Navbar = () => {
               key={id}
               className="block hover:text-white hover:border-b-[1px] text-gray-600 font-bold font-sans text-lg"
             >
-              {name}
+               <Trans i18nKey={`navbar.${name.toLowerCase()}`}>{name}</Trans>
             </Link>
           ))}
        

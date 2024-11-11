@@ -1,0 +1,13 @@
+{
+  "banner_alt_text": "Una imagen de la fachada de una tienda con las palabras Seashores en ella",
+  "headline": "Seashores es un sitio web de productos para el hogar",
+  "description": "Con Seashores, encontrarás una amplia variedad de productos para el hogar, desde ropa y accesorios hasta alimentos y bebidas. Disfrutarás de una amplia selección de productos de alta calidad",
+  "beauty_button": "Ir a la página de belleza",
+  "groceries_button": "Ir a la página de Alimentos",
+
+  "navbar": {
+    "inicio": "Inicio",
+    "belleza": "Belleza",
+    "alimentos": "Alimentos"
+  }
+}
