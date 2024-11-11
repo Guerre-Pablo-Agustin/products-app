@@ -6,8 +6,8 @@
   "groceries_button": "Ir a la página de Alimentos",
 
   "navbar": {
-    "inicio": "Inicio",
-    "belleza": "Belleza",
-    "alimentos": "Alimentos"
+    "home": "Inicio",
+    "beauty": "Belleza",
+    "groceries": "Alimentos"
   }
 }
